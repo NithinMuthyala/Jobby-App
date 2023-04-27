@@ -1,0 +1,136 @@
+.jd-failure-container {
+  background-color: #000000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.jd-failure-image {
+  width: 80%;
+}
+.jd-failure-heading {
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+.jd-failure-text {
+  color: #64748b;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 15px;
+  text-align: center;
+  padding: 20px;
+}
+.js-failure-retry-btn {
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+}
+.jd-success-container {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+.jd-success-card {
+  background-color: #272727;
+  width: 90%;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 14px;
+}
+.des-link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.links-container {
+  display: flex;
+  align-items: center;
+  color: #6366f1;
+}
+.jd-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-size: 13px;
+  padding-right: 5px;
+}
+.jd-skill-heading {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+}
+.jd-skill-name {
+  color: #ffffff;
+  font-weight: 500;
+}
+.skill-image {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+}
+.jd-skill-card {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  height: 90px;
+  width: 150px;
+}
+.jd-ul-container {
+  display: flex;
+  padding-left: 0px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .jd-ul-container {
+    width: 50%;
+  }
+}
+.jd-life-atc-heading {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+.jd-company-description {
+  color: #7e858e;
+  font-size: 15px;
+  font-weight: 400;
+}
+@media screen and (min-width: 576px) {
+  .jd-company-des-container {
+    display: flex;
+  }
+  .jd-company-description {
+    padding-right: 10px;
+  }
+}
+.similar-ul-container {
+  padding-left: 0px;
+}
+@media screen and (min-width: 600px) {
+  .similar-ul-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+}
+.jd-header-container {
+  width: 100%;
+}
+.similar-jobs-heading {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+}

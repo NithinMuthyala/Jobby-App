@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import JobItem from '../JobItem'
 import Profile from '../Profile'
+import Header from '../Header'
 import './index.css'
 
 const apiStatusConstants = {
@@ -71,12 +72,12 @@ class JobsList extends Component {
     // console.log(salaryRange)
     // console.log(searchText)
 
-    const jobsUrl = `https://apis.ccbp.in/jobs?employment_type=${employementType.join()}&minimum_package=${salaryRange}&search=${searchText}`
-    // console.log(jobsUrl)
+    const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employementType.join()}&minimum_package=${salaryRange}&search=${searchText}`
+    // console.log( jobsApiUrl)
     const token = Cookies.get('jwt_token')
     const options = {method: 'GET', headers: {Authorization: `Bearer ${token}`}}
 
-    const response = await fetch(jobsUrl, options)
+    const response = await fetch(jobsApiUrl, options)
     const data = await response.json()
     // console.log(data)
     if (response.ok === true) {
@@ -101,15 +102,26 @@ class JobsList extends Component {
     }
   }
 
+  failureRetryClicked = () => {
+    this.getJobsList()
+  }
+
   renderFailure = () => (
-    <div>
+    <div className="failure-jss-container">
       <div>
         <img
           src="https://assets.ccbp.in/frontend/react-js/failure-img.png "
           alt="failure view"
         />
-        <h1>Something Went Wrong</h1>
-        <p>We cannot seem to find the page</p>
+        <h1>Oops! Something Went Wrong</h1>
+        <p>We cannot seem to find the page you are looking for</p>
+        <button
+          type="button"
+          className="faliure-js-btn"
+          onClick={this.failureRetryClicked}
+        >
+          Retry
+        </button>
       </div>
     </div>
   )
@@ -117,7 +129,7 @@ class JobsList extends Component {
   checkboxFiltersCard = () => (
     <div className="checkbox-main-container">
       <div className="check-box-card">
-        <h1 className="employemnt-type-heading">Type of Employement</h1>
+        <h1 className="employemnt-type-heading">Type of Employment</h1>
         {employmentTypesList.map(eachFilter => (
           <div
             className="check-box-container"
@@ -160,10 +172,10 @@ class JobsList extends Component {
 
   radioButtonFilterCard = () => (
     <div className="radio-main-container">
-      <div className="radio-card">
+      <ul className="radio-card">
         <h1 className="salary-heading">Salary Range</h1>
         {salaryRangesList.map(eachRadio => (
-          <div className="radio-container" key={eachRadio.salaryRangeId}>
+          <li className="radio-container" key={eachRadio.salaryRangeId}>
             <input
               id={eachRadio.salaryRangeId}
               type="radio"
@@ -174,9 +186,9 @@ class JobsList extends Component {
             <label className="label-radio" htmlFor={eachRadio.salaryRangeId}>
               {eachRadio.label}
             </label>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 
@@ -184,6 +196,10 @@ class JobsList extends Component {
     if (event.key === 'Enter') {
       this.getJobsList()
     }
+  }
+
+  searchClicked = () => {
+    this.getJobsList()
   }
 
   searchInputcard = () => (
@@ -195,7 +211,12 @@ class JobsList extends Component {
         onChange={this.searchText}
         onKeyDown={this.enterClicked}
       />
-      <button type="button" className="search-btn" data-testid="searchButton">
+      <button
+        type="button"
+        className="search-btn"
+        data-testid="searchButton"
+        onClick={this.searchClicked}
+      >
         <BsSearch className="search-icon" />
       </button>
     </div>
@@ -254,15 +275,18 @@ class JobsList extends Component {
 
   render() {
     return (
-      <div className="main-container">
-        <div className="filters-container">
-          {this.searchInputcard()}
-          <Profile />
-          {this.checkboxFiltersCard()}
-          {this.radioButtonFilterCard()}
+      <>
+        <Header />
+        <div className="main-container">
+          <div className="filters-container">
+            {this.searchInputcard()}
+            <Profile />
+            {this.checkboxFiltersCard()}
+            {this.radioButtonFilterCard()}
+          </div>
+          <div className="sfl-cards">{this.renderCards()}</div>
         </div>
-        <div className="sfl-cards">{this.renderCards()}</div>
-      </div>
+      </>
     )
   }
 }

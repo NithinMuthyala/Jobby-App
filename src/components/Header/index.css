@@ -40,15 +40,20 @@ li {
   font-size: 13px;
   font-weight: 500;
 }
+.small-devices {
+  width: 100%;
+}
 .large-devices {
   display: none;
 }
 @media screen and (min-width: 500px) {
   .small-devices {
     display: none;
+    width: 100%;
   }
   .large-devices {
     display: block;
+    width: 1005;
   }
 }
 
@@ -56,4 +61,12 @@ li {
   border: none;
   background-color: transparent;
   outline: none;
+}
+.header-link-text {
+  text-decoration: none;
+  color: #ffffff;
+}
+.logo-btn {
+  background-color: transparent;
+  border: none;
 }

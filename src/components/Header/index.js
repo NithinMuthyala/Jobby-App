@@ -14,11 +14,13 @@ const Header = props => {
 
   const renderSmallDevices = () => (
     <div className="header-bg-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        alt="website logo"
-        className="header-logo"
-      />
+      <Link to="/">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+          alt="website logo"
+          className="header-logo"
+        />
+      </Link>
       <ul className="icons-container">
         <li>
           <Link to="/">
@@ -45,18 +47,24 @@ const Header = props => {
 
   const renderlargeDevices = () => (
     <div className="header-bg-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        alt="website logo"
-        className="header-logo"
-      />
+      <Link to="/">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+          alt="website logo"
+          className="header-logo"
+        />
+      </Link>
 
       <ul className="ul-container">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className="header-link-text">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/jobs">Jobs</Link>
+          <Link to="/jobs" className="header-link-text">
+            Jobs
+          </Link>
         </li>
       </ul>
 

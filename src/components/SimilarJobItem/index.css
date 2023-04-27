@@ -1,0 +1,25 @@
+.similar-job-list-item {
+  background-color: #272727;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  list-style-type: none;
+}
+@media screen and (min-width: 600px) {
+  .similar-job-list-item {
+    width: 40%;
+    margin-right: 10px;
+  }
+}
+.similar-heading {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.similar-description {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+}
